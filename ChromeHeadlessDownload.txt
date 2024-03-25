@@ -1,0 +1,7 @@
+1- Copy the file ChromeHeadlessDownload.py into Python_Home\Lib\site-packages\robot\libraries
+2- Edit __init__.py file and add 'ChromeHeadlessDownload' at the end
+3- Refresh the libraries in your IDE
+
+Notes:
+
+Use the get Driver function to initialize a custom Chrome driver 

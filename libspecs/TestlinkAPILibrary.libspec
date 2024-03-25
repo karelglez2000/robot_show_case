@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec format="ROBOT" generated="2024-03-25T16:15:30Z" lineno="24" name="TestlinkAPILibrary" namedargs="true" scope="SUITE" source="C:\Python37-32\lib\site-packages\robot\libraries\TestlinkAPILibrary.py" specversion="2" type="LIBRARY">
+<version />
+<scope>test suite</scope>
+<namedargs>yes</namedargs>
+<doc>Robot Framework test library for testing TestLink-API-Python-client, 
+a Python XML-RPC client for TestLink.
+
+Best way to configure SERVER_URL and DEVKEY is to define them via enviroment
+TESTLINK_API_PYTHON_SERVER_URL and TESTLINK_API_PYTHON_DEVKEY from outside</doc>
+<init lineno="34">
+<arguments>
+<arg>client_class=TestlinkAPIClient</arg>
+<arg>server_url=None</arg>
+<arg>devkey=None</arg>
+</arguments>
+<doc>Initialize self.  See help(type(self)) for accurate signature.</doc>
+</init>
+<kw lineno="55" name="Call Api Method">
+<arguments>
+<arg>method_name</arg>
+<arg>*args</arg>
+</arguments>
+<doc>Calls a TestLink API method and returns TestLinks server response.</doc>
+</kw>
+<kw lineno="40" name="Create Api Client">
+<arguments>
+<arg>client_class=TestlinkAPIClient</arg>
+<arg>server_url=None</arg>
+<arg>devkey=None</arg>
+</arguments>
+<doc>Creates a new TestLink-API-Python-client (XMLRPC), using Python class 
+TestlinkAPIClient or TestlinkAPIGeneric.</doc>
+</kw>
+</keywordspec>

@@ -1,0 +1,107 @@
+ROBOT FRAMEWORK
+
+1 - Preconditions
+Robot Framework is supported on Python (both Python 2 and Python 3), Jython (JVM) and IronPython (.NET) and PyPy. 
+The interpreter you want to use should be installed before installing the framework itself.
+[python-3.6.4-amd64.exe]
+
+2 - Configuring PATH
+What directories to add to PATH
+The directories that will be needed to add to the PATH depends on the interpreter and the operating system. 
+The first location is the installation directory of the interpreter (e.g. C:\Python27) and the other is the location where scripts are installed with that interpreter. 
+Both Python and IronPython install scripts to Scripts directory under the installation directory on Windows (e.g. C:\Python27\Scripts) and Jython uses bin directory 
+regardless the operating system (e.g. C:\jython2.7.0\bin).
+Notice that the Scripts and bin directories may not be created as part of the interpreter installation, but only later when Robot Framework or some other third party module is installed.
+[Variable PATH = C:\Users\Karel\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Karel\AppData\Local\Programs\Python\Python36\;C:\jython2.7.0\bin\;C:\Windows\chromedriver.exe]
+
+https://chromedriver.chromium.org/downloads
+
+[See Configuring path.JPG]
+if more than one driver will be used set the path with C:\Windows\drivers\, pointing to the folder that contain all drivers
+
+3 - Setting https_proxy
+If you are installing with pip and are behind a proxy, you need to set the https_proxy environment variable. 
+It is needed both when installing pip itself and when using it to install Robot Framework and other Python packages.
+How to set the https_proxy depends on the operating system similarly as configuring PATH. 
+The value of this variable must be an URL of the proxy, for example, http://10.0.0.42:8080.
+[Variable https_proxy = http://cevmunoz:Teamworkdss@10.8.6.47:3128]
+[See Configuring Proxy.JPG]
+
+4.1 - Installing with pip
+The standard Python package manager is pip, but there are also other alternatives such as Buildout and easy_install. 
+These instructions only cover using pip, but other package managers ought be able to install Robot Framework as well.
+Latest Python, Jython, IronPython and PyPy versions contain pip bundled in. 
+Which versions contain it and how to possibly activate it is discussed in sections below. 
+See pip project pages if for the latest installation instructions if you need to install it.
+Note
+Only Robot Framework 2.7 and newer can be installed using pip. 
+If you need an older version, you must use other installation approaches.
+[Windows command line: pip install robotframework]
+[pip install selenium]
+[pip install robotframework-seleniumlibrary]
+
+[pip install RESTinstance]
+
+[pip install robotframework-selenium2library]
+
+All this libraries are installed inside python base dir: ...\Python36\Lib\site-packages\
+
+4.2 - Manual installation
+Robot framework and selenium can be used with the source code
+All you need is to copy the sources:
+-robot
+-selenium
+-Selenium2Library
+-SeleniumLibrary
+into ...\Python36\Lib\site-packages\
+
+5.1 - Write your test siute and execute the test cases manually
+
+For installed with pip
+[Windows command line: robot example.robot]
+[See Robotframework.JPG]
+
+For manual installed
+[Windows command line: python -m robot example.robot]
+
+5.2 - Write your test siute and execute the test cases using Eclipse 4.7 (Oxigen) + RED pluggin
+Install RED (Robot editor) for eclipse
+
+5.3 - Execute with cmd
+PS C:\Users\Karel Gonzalez\Documents\4work\workspaceRobot\jmap-8-automatic-tests> robot .\tests\rest_api\map_configuration_service\LayersRestApiTests.robot
+
+Detailed execution  (different folder to generate reports)
+PS C:\Users\Karel Gonzalez\Documents\4work\workspaceRobot\jmap-8-automatic-tests> robot -d C:\temp .\tests\rest_api\map_configuration_service\LayersRestApiTests.robot
+
+pip install robotframework-databaselibrary
+pip install psycopg2-binary
+
+
+==================Critical and Non-Critical ==============================
+You need to tell robot which tags are critical and which are not (You must define your non-critical and critical tags as you which with no space in the name). When you run your tests you need to include the command line argument --noncritical non-critical and --critical critical
+
+Example in command line:
+$robot --noncritical Non-Critical --critical Critical mysuite.robot
+
+In my work project I named the non-critical as follow: Non-Critical, and I used a "Default Tags" "Non-Critical" in settings, marking all TCs as non-critical.
+To specify a Critical TC, the Critical tag must be added to it.
+
+Example in Eclipse:
+Go to "Run configuration", arguments section, additional Robot framework arguments box, and type: 
+--noncritical Non-Critical
+--critical Critical
+
+As result, in reports, the column critical will be correctly updated
+
+
+
+
+
+
+
+
+
+
+
+
+
